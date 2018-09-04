@@ -1,28 +1,17 @@
 import React, { Component } from "react";
-import { calculateBMI, translateBMItoText } from "../functions";
 
 class Form extends Component {
   updateState(name, value) {
-    const bmi = parseFloat(
-      calculateBMI(
-        this.props.values.height,
-        this.props.values.weight,
-        this.props.values.heightUnit,
-        this.props.values.weightUnit
-      )
-    );
-    const update = {
-      bmi: bmi,
-      legend: translateBMItoText(bmi)
-    };
+    const update = {};
     update[name] = value;
     this.props.updateState(update);
   }
 
   render() {
     return (
-      <div>
+      <div className="form">
         <form action="">
+          <label>Gender</label>
           <select
             onChange={event =>
               this.updateState(event.target.name, event.target.value)
@@ -33,16 +22,22 @@ class Form extends Component {
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
-          <label htmlFor="" />
+          <br />
+          <label>Weight</label>
           <input
             onChange={event =>
-              this.updateState(event.target.name, parseInt(event.target.value))
+              // eslint-disable-next-line
+              this.updateState(
+                event.target.name,
+                parseFloat(event.target.value)
+              )
             }
             type="number"
             name="weight"
             id=""
-            value={this.props.values.weight}
+            value={this.props.weight}
           />
+
           <select
             onChange={event =>
               this.updateState(event.target.name, event.target.value)
@@ -53,15 +48,20 @@ class Form extends Component {
             <option value="lb">Pounds</option>
             <option value="kg">Kilograms</option>
           </select>
-          <label htmlFor="" />
+          <br />
+          <label>Height</label>
           <input
             onChange={event =>
-              this.updateState(event.target.name, parseInt(event.target.value))
+              // eslint-disable-next-line
+              this.updateState(
+                event.target.name,
+                parseFloat(event.target.value)
+              )
             }
             type="number"
             name="height"
             id=""
-            value={this.props.values.height}
+            value={this.props.height}
           />
           <select
             onChange={event =>

@@ -7,8 +7,12 @@ class BodyImage extends Component {
     }.png`;
 
     return (
-      <div>
-        <img src={`./IMG/${filename}`} alt={`${this.props.legend} body`} />
+      <div className="image">
+        <img
+          className="bodyImage"
+          src={`./IMG/${filename}`}
+          alt={`${this.props.legend} body`}
+        />
       </div>
     );
   }

@@ -4,19 +4,24 @@ export function calculateBMI(height, weight, heightUnit, weightUnit) {
   if (heightUnit === "in") {
     h = height * 0.0254;
   } else {
-    h = height;
+    h = height / 100;
   }
   if (weightUnit === "lb") {
     w = weight * 0.453592;
   } else {
     w = weight;
   }
-  const BMI = w / (h * h);
+  h = h * h;
+  const bmi = w / h;
 
-  return BMI.toFixed(1);
+  return bmi.toFixed(2);
 }
 
 export function translateBMItoText(bmi) {
+  if (isNaN(bmi)) {
+    return "LoAdInG...";
+  }
+
   if (bmi < 18.5) {
     return "Underweight";
   }

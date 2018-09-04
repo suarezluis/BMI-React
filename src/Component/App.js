@@ -7,6 +7,7 @@ import Title from "./Title";
 import Form from "./Form";
 import Result from "./Result";
 import BodyImage from "./BodyImage";
+import Footer from "./Footer";
 
 class App extends Component {
   constructor(props) {
@@ -31,13 +32,22 @@ class App extends Component {
       <div className="App">
         <Navbar />
         <Title />
-        <Form updateState={this.updateState} values={this.state} />
+        <Form
+          updateState={this.updateState}
+          weight={this.state.weight}
+          height={this.state.height}
+        />
         <Result
           updateState={this.updateState}
-          bmi={this.state.bmi}
+          weight={this.state.weight}
+          height={this.state.height}
+          weightUnit={this.state.weightUnit}
+          heightUnit={this.state.heightUnit}
           legend={this.state.legend}
+          gender={this.state.gender}
         />
-        <BodyImage legend={this.state.legend} gender={this.state.gender} />
+
+        <Footer />
       </div>
     );
   }

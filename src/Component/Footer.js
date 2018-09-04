@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-class Navbar extends Component {
+class Footer extends Component {
   render() {
     return (
-      <div className="navbar ">
+      <div className="footer ">
         {" "}
         <p>
           <a href="http://www.suarezluis.com/"> Creator's Website</a>
@@ -13,4 +13,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+export default Footer;
