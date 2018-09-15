@@ -6,8 +6,13 @@ import Navbar from "./Navbar";
 import Title from "./Title";
 import Form from "./Form";
 import Result from "./Result";
-import BodyImage from "./BodyImage";
 import Footer from "./Footer";
+
+// Keep server awake
+var http = require("http");
+setInterval(function() {
+  http.get("https://suarezluis-react-bmi.herokuapp.com/");
+}, 300000); // every 5 minutes (300000)
 
 class App extends Component {
   constructor(props) {
